@@ -105,18 +105,8 @@ public class Main {
 			}
 			if (response > 0) {
 				Movie movieSelected = movies.get(response-1);
-				movieSelected.setViewed(true);
-				Date dateI = movieSelected.startToSee(new Date());
-				
-				for (int i = 0; i < 100000; i++) {
-					System.out.println("..........");
-				}
-				
-				//Termine de verla
-				movieSelected.stopToSee(dateI, new Date());
-				System.out.println();
-				System.out.println("Viste: " + movieSelected);
-				System.out.println("Por: " + movieSelected.getTimeViewed() + " milisegundos");
+				movieSelected.view();
+
 			}
 			
 			
@@ -181,18 +171,8 @@ public class Main {
 			
 			if(response > 0) {
 				Chapter chapterSelected = chaptersOfSerieSelected.get(response-1);
-				chapterSelected.setViewed(true);
-				Date dateI = chapterSelected.startToSee(new Date());
-				
-				for (int i = 0; i < 100000; i++) {
-					System.out.println("..........");
-				}
-				
-				//Termine de verla
-				chapterSelected.stopToSee(dateI, new Date());
-				System.out.println();
-				System.out.println("Viste: " + chapterSelected);
-				System.out.println("Por: " + chapterSelected.getTimeViewed() + " milisegundos");
+				chapterSelected.view();
+
 			}
 		}while(exit !=0);
 	}
@@ -223,18 +203,8 @@ public class Main {
 			
 			if(response > 0) {
 				Book bookSelected = books.get(response-1);
-				bookSelected.setReaded(true);
-				Date dateI = bookSelected.startToSee(new Date());
-				
-				for (int i = 0; i < 100000; i++) {
-					System.out.println("..........");
-				}
-				
-				//Termine de verla
-				bookSelected.stopToSee(dateI, new Date());
-				System.out.println();
-				System.out.println("Leíste: " + bookSelected);
-				System.out.println("Por: " + bookSelected.getTimeReaded() + " milisegundos");
+				bookSelected.view();
+
 			}
 			
 		}while(exit !=0);
@@ -300,8 +270,8 @@ public class Main {
 			}
 		}
 
-		report.setContent(contentReport);
-		report.makeReport();
+		//report.setContent(contentReport);
+		//report.makeReport();
 		System.out.println("Reporte Generado");
 		System.out.println();
 	}
@@ -309,11 +279,11 @@ public class Main {
 	public static void makeReport(Date date) {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-h-m-s-S");
 		String dateString = df.format(date);
-		Report report = new Report();
+		/*Report report = new Report();
 		
 		report.setNameFile("reporte" + dateString);
 		report.setExtension("txt");
-		report.setTitle(":: VISTOS ::");
+		report.setTitle(":: VISTOS ::");*/
 		
 		
 		SimpleDateFormat dfNameDays = new SimpleDateFormat("E, W MMM Y");
@@ -343,8 +313,8 @@ public class Main {
 				
 			}
 		}
-		report.setContent(contentReport);
-		report.makeReport();
+	//	report.setContent(contentReport);
+		//report.makeReport();
 		
 		System.out.println("Reporte Generado");
 		System.out.println();
